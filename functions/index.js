@@ -1,5 +1,6 @@
 import functions from 'firebase-functions';
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import { coffeeRouter } from './routes/coffee.js';
 import dotenv from 'dotenv';
@@ -11,7 +12,8 @@ const corsOptions = {
   preflightContinue: false,
   optionsSuccessStatus: 204,
 };
-const app = express(corsOptions);
+const app = express();
+app.use(cors(corsOptions));
 // if behind a proxy, the IP address might be the one from the proxy, making the limit globally. This is not the desired behaviour.
 //https://www.npmjs.com/package/express-rate-limit
 app.set('trust proxy', 2);
