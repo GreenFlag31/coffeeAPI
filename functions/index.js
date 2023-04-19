@@ -14,8 +14,6 @@ const corsOptions = {
 };
 const app = express();
 app.use(cors(corsOptions));
-// Don't make limit global : https://www.npmjs.com/package/express-rate-limit
-// app.set('trust proxy', 2);
 
 app.use(express.json());
 mongoose.connect(process.env.DATABASE_URI);

@@ -1,12 +1,10 @@
 import express from 'express';
 import apicache from 'apicache';
 import { Coffee } from '../models/schema.js';
-// import { queryLimit } from '../middleware/limit.js';
 const cache = apicache.middleware;
 
 const coffeeRouter = express.Router();
 coffeeRouter.use(cache('24 hours'));
-// coffeeRouter.use(queryLimit);
 
 const coffeeTypes = ['arabica', 'robusta', 'liberica', 'excelsa'];
 const regions = ['africa', 'america', 'arabia', 'asia'];
